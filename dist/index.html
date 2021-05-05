@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Weather-App</title>
+</head>
+
+<body>
+    <h3>Mobile Web Weather App using JQuery/HandleBars/Node.js<br>/Express/API/Routes/MongoDB/Mongoose</h3>
+    <div class="search">
+    <i class="fas fa-search"></i>
+    <input class="cityName" type="text" placeholder="Enter City">
+    <input class="current" onclick=currentLocation() type="submit" value="Current Location" > 
+</div>
+    <div class="cities">
+    </div>
+</body>
+<script id="cities-template" type="text/x-handlebars-template">
+    {{#each cities}}
+    <div class="cityBox">
+
+     <div class="name">{{name}}</div>
+     <div class="temp">{{temp}}°</div>
+     <div class="condition">{{condition}}</div>
+     <img class="icon" src="http://openweathermap.org/img/w/{{conditionPic}}.png">
+     {{#if _id}}
+     <i class="fas fa-minus-circle"></i>
+    </div>
+     {{else}}
+     <i class="fas fa-plus-circle"></i>  
+    </div>
+     {{/if}}
+     {{/each}}
+    
+
+</script>
+<script src="jquery/dist/jquery.js"></script>
+<script src="handlebars/dist/handlebars.js"></script>
+<script src="main.js"></script>
+
+</html>
