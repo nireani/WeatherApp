@@ -1,7 +1,6 @@
 {
   "name": "weatherapp",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.21.1",
@@ -25,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/nireani/WeatherApp/issues"
   },
-  "homepage": "https://github.com/nireani/WeatherApp#readme"
+  "homepage": "https://github.com/nireani/WeatherApp#readme",
+  "description": ""
 }
