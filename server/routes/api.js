@@ -50,6 +50,7 @@ router.post(`/city`, function (req, res) {
     const cityName = req.query.cityName
     let newCity = true
     City.find({}, function (err, cityData) {
+        console.log(cityData);
         if (cityData.length > 0) {
             cityData.forEach(c => {
                 if (c.name.toLowerCase() == cityName.toLocaleLowerCase()) {
