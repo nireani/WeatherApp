@@ -28,6 +28,7 @@ router.get(`/city`, function (req, res) {
 
 router.get(`/cities`, function (req, res) {
     City.find({}, function (err, cities) {
+        console.log(cities);
         res.send(cities)
     })
 })
