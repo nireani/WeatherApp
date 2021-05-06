@@ -49,7 +49,7 @@ const addCity = function (cityName) {
 router.post(`/city`, function (req, res) {
     const cityName = req.query.cityName
     let newCity = true
-    City.find({}, function (err, cityData) {
+    WeatherAppCollection.find({}, function (err, cityData) {
         if (cityData.length > 0) {
             cityData.forEach(c => {
                 if (c.name.toLowerCase() == cityName.toLocaleLowerCase()) {
@@ -79,7 +79,7 @@ const capitalize = function (str) {
 router.delete(`/city`, function (req, res) {
     const cityToDelete = req.query.cityName
     const CityToDeleteCapFirstLetter = cityToDelete.split(' ').map(capitalize).join(' ');
-    City.findOneAndRemove({ name: CityToDeleteCapFirstLetter }, function (err, cities) {
+    WeatherAppCollection.findOneAndRemove({ name: CityToDeleteCapFirstLetter }, function (err, cities) {
         res.end()
     })
 })
