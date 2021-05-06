@@ -27,7 +27,7 @@ router.get(`/city`, function (req, res) {
 
 
 router.get(`/cities`, function (req, res) {
-    City.find({}, function (err, cities) {
+    WeatherAppCollection.find({}, function (err, cities) {
         res.send(cities)
     })
 })
