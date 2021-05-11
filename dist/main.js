@@ -80,9 +80,7 @@ $(document).on('click', '.fa-search', function () {
 
 $(document).on('click', '.fa-plus-circle',  function () {
     const cityName = $(this).closest(".cityBox").find(".name").text().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    console.log(cityName);
     $.post(`city?cityName=${cityName}`, function (err, result) {
-        console.log(result);
     })
     setTimeout(function(){
         RenderData()}, 700);
@@ -91,7 +89,6 @@ $(document).on('click', '.fa-plus-circle',  function () {
 
 $(document).on('click', '.fa-minus-circle', async function () {
     const cityName = $(this).closest(".cityBox").find(".name").text().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    console.log(cityName);
     $.ajax({
         url: `city?cityName=${cityName}`,
         type: 'DELETE',
