@@ -1,5 +1,6 @@
 const RenderData = function () {
     $.get(`/cities`, function (cities) {
+        console.log(cities);
         $(".cities").empty()
         const source = $("#cities-template").html()
         const template = Handlebars.compile(source)
@@ -77,12 +78,14 @@ $(document).on('click', '.fa-search', function () {
 })
 
 
-$(document).on('click', '.fa-plus-circle',  async function () {
+$(document).on('click', '.fa-plus-circle',  function () {
     const cityName = $(this).closest(".cityBox").find(".name").text().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    $.post(`city?cityName=${cityName}`,   await function (err, result) {
-        await  RenderData()
+    console.log(cityName);
+    $.post(`city?cityName=${cityName}`, function (err, result) {
+        console.log(result);
     })
-      
+    setTimeout(function(){
+        RenderData()}, 700);
 
 });
 
