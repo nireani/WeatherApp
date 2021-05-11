@@ -28,8 +28,7 @@ router.get(`/city`, function (req, res) {
 
 router.get(`/cities`, function (req, res) {
     City.find({}, function (err, cities) {
-        console.log(cities);
-        res.send(cities)
+       res.send(cities)
     })
 })
 
@@ -51,7 +50,6 @@ router.post(`/city`, function (req, res) {
     const cityName = req.query.cityName
     let newCity = true
     City.find({}, function (err, cityData) {
-        console.log(cityData);
         if (cityData.length > 0) {
             cityData.forEach(c => {
                 if (c.name.toLowerCase() == cityName.toLocaleLowerCase()) {

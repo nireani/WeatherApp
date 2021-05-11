@@ -1,6 +1,5 @@
 const RenderData = function () {
     $.get(`/cities`, function (cities) {
-        console.log(cities);
         $(".cities").empty()
         const source = $("#cities-template").html()
         const template = Handlebars.compile(source)
@@ -81,8 +80,9 @@ $(document).on('click', '.fa-search', function () {
 $(document).on('click', '.fa-plus-circle',  async function () {
     const cityName = $(this).closest(".cityBox").find(".name").text().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     $.post(`city?cityName=${cityName}`,   await function (err, result) {
+        await  RenderData()
     })
-      await  RenderData()
+      
 
 });
 
