@@ -78,29 +78,26 @@ $(document).on('click', '.fa-search', function () {
 })
 
 
-$(document).on('click', '.fa-plus-circle',  function () {
+$(document).on('click', '.fa-plus-circle',  async function () {
     const cityName = $(this).closest(".cityBox").find(".name").text().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    console.log(cityName);
-    $.post(`city?cityName=${cityName}`,   async function (err, result) {
-        console.log(result);
+    $.post(`city?cityName=${cityName}`,   await function (err, result) {
     })
-    setTimeout(function(){
-        RenderData()}, 700);
+      await  RenderData()
 
 });
 
-$(document).on('click', '.fa-minus-circle', function () {
+$(document).on('click', '.fa-minus-circle', async function () {
     const cityName = $(this).closest(".cityBox").find(".name").text().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     console.log(cityName);
     $.ajax({
         url: `city?cityName=${cityName}`,
         type: 'DELETE',
-        success: function (result) {
+        success: await function (result) {
             console.log(result);
         }
     });
 
-RenderData()
+await RenderData()
 
 })
 
