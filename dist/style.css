@@ -6,7 +6,7 @@ color: honeydew;
     background-color: #80A1D4;
     align-content: center;
     text-align: center;
-    width: 100%;
+    width: 30%;
     height: 20vh;
     display: grid;
     border-style: outset;
@@ -14,7 +14,11 @@ color: honeydew;
     'p t i'
     'p n c'
 }
-
+@media screen and (max-width: 600px) {
+    .cityBox {
+        width: 100%;;
+    }
+  }
 
 input[type=text] {
     width: 40%;
